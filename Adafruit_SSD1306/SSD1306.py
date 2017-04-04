@@ -85,7 +85,7 @@ class SSD1306Base(object):
             self._gpio = GPIO.get_platform_gpio()
         # Setup reset pin.
         self._rst = rst
-        if self._rst is not None
+        if self._rst is not None:
             self._gpio.setup(self._rst, GPIO.OUT)
         # Handle hardware SPI
         if spi is not None:
@@ -144,7 +144,7 @@ class SSD1306Base(object):
         # Save vcc state.
         self._vccstate = vccstate
         # Reset and initialize display.
-        if self._rst is not None
+        if self._rst is not None:
             self.reset()
         self._initialize()
         # Turn on the display.
