@@ -30,7 +30,7 @@ from PIL import ImageDraw
 
 
 # Raspberry Pi pin configuration:
-RST = 24
+RST = None
 # Note the following are only used with SPI:
 DC = 23
 SPI_PORT = 0

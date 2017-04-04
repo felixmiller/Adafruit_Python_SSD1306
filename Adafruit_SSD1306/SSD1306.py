@@ -69,7 +69,7 @@ class SSD1306Base(object):
     and provide an implementation for the _initialize function.
     """
 
-    def __init__(self, width, height, rst, dc=None, sclk=None, din=None, cs=None,
+    def __init__(self, width, height, rst=None, dc=None, sclk=None, din=None, cs=None,
                  gpio=None, spi=None, i2c_bus=None, i2c_address=SSD1306_I2C_ADDRESS,
                  i2c=None):
         self._log = logging.getLogger('Adafruit_SSD1306.SSD1306Base')
@@ -85,7 +85,8 @@ class SSD1306Base(object):
             self._gpio = GPIO.get_platform_gpio()
         # Setup reset pin.
         self._rst = rst
-        self._gpio.setup(self._rst, GPIO.OUT)
+        if self._rst is not None
+            self._gpio.setup(self._rst, GPIO.OUT)
         # Handle hardware SPI
         if spi is not None:
             self._log.debug('Using hardware SPI')
@@ -143,7 +144,8 @@ class SSD1306Base(object):
         # Save vcc state.
         self._vccstate = vccstate
         # Reset and initialize display.
-        self.reset()
+        if self._rst is not None
+            self.reset()
         self._initialize()
         # Turn on the display.
         self.command(SSD1306_DISPLAYON)
@@ -232,7 +234,7 @@ class SSD1306Base(object):
 
 
 class SSD1306_128_64(SSD1306Base):
-    def __init__(self, rst, dc=None, sclk=None, din=None, cs=None, gpio=None,
+    def __init__(self, rst=None, dc=None, sclk=None, din=None, cs=None, gpio=None,
                  spi=None, i2c_bus=None, i2c_address=SSD1306_I2C_ADDRESS,
                  i2c=None):
         # Call base class constructor.
@@ -277,7 +279,7 @@ class SSD1306_128_64(SSD1306Base):
 
 
 class SSD1306_128_32(SSD1306Base):
-    def __init__(self, rst, dc=None, sclk=None, din=None, cs=None, gpio=None,
+    def __init__(self, rst=None, dc=None, sclk=None, din=None, cs=None, gpio=None,
                  spi=None, i2c_bus=None, i2c_address=SSD1306_I2C_ADDRESS,
                  i2c=None):
         # Call base class constructor.
@@ -319,7 +321,7 @@ class SSD1306_128_32(SSD1306Base):
 
 
 class SSD1306_96_16(SSD1306Base):
-    def __init__(self, rst, dc=None, sclk=None, din=None, cs=None, gpio=None,
+    def __init__(self, rst=None, dc=None, sclk=None, din=None, cs=None, gpio=None,
                  spi=None, i2c_bus=None, i2c_address=SSD1306_I2C_ADDRESS,
                  i2c=None):
         # Call base class constructor.
